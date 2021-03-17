@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', 'articles');
 
-Route::get('articles', 'App\Http\Controllers\ArticlesController@showArticles');
+Route::get('articles', 'App\Http\Controllers\ArticlesController@showArticles')->name('articlesroute');
 
-Route::get('articles/{id}', 'App\Http\Controllers\ExampleController@openArticle')->name('articleroute');
+Route::get('articles/{id}', 'App\Http\Controllers\ArticleController@openArticle')->name('articleroute');
+
+Route::post('articles/{id}', 'App\Http\Controllers\ArticleController@createComment')->name('commentroute');
